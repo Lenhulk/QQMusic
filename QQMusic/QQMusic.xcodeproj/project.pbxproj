@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E96901241DEC126E00FA12DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96901231DEC126E00FA12DC /* AppDelegate.swift */; };
-		E96901261DEC126E00FA12DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96901251DEC126E00FA12DC /* ViewController.swift */; };
 		E96901291DEC126E00FA12DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96901271DEC126E00FA12DC /* Main.storyboard */; };
 		E969012B1DEC126E00FA12DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E969012A1DEC126E00FA12DC /* Assets.xcassets */; };
 		E969012E1DEC126E00FA12DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E969012C1DEC126E00FA12DC /* LaunchScreen.storyboard */; };
@@ -17,7 +16,6 @@
 /* Begin PBXFileReference section */
 		E96901201DEC126E00FA12DC /* QQMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QQMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E96901231DEC126E00FA12DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E96901251DEC126E00FA12DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E96901281DEC126E00FA12DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E969012A1DEC126E00FA12DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E969012D1DEC126E00FA12DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,14 +52,53 @@
 		E96901221DEC126E00FA12DC /* QQMusic */ = {
 			isa = PBXGroup;
 			children = (
+				E96901351DEC145D00FA12DC /* Classes */,
 				E96901231DEC126E00FA12DC /* AppDelegate.swift */,
-				E96901251DEC126E00FA12DC /* ViewController.swift */,
 				E96901271DEC126E00FA12DC /* Main.storyboard */,
 				E969012A1DEC126E00FA12DC /* Assets.xcassets */,
 				E969012C1DEC126E00FA12DC /* LaunchScreen.storyboard */,
 				E969012F1DEC126E00FA12DC /* Info.plist */,
 			);
 			path = QQMusic;
+			sourceTree = "<group>";
+		};
+		E96901351DEC145D00FA12DC /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				E96901361DEC145D00FA12DC /* Controller */,
+				E96901371DEC145D00FA12DC /* Model */,
+				E96901381DEC145D00FA12DC /* Tools */,
+				E96901391DEC145D00FA12DC /* View */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		E96901361DEC145D00FA12DC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E96901371DEC145D00FA12DC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E96901381DEC145D00FA12DC /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		E96901391DEC145D00FA12DC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,7 +173,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E96901261DEC126E00FA12DC /* ViewController.swift in Sources */,
 				E96901241DEC126E00FA12DC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,7 +296,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = QQMusic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.crazy.QQMusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -272,7 +311,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = QQMusic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.crazy.QQMusic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
