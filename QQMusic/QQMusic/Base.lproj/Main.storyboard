@@ -71,7 +71,7 @@
                                     <constraint firstItem="9pj-Aq-Ne0" firstAttribute="centerY" secondItem="8X5-Un-QW0" secondAttribute="centerY" constant="-15" id="zkr-mA-LL2"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kay-m5-Np8">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kay-m5-Np8" userLabel="Bottom View">
                                 <rect key="frame" x="0.0" y="537.33333333333348" width="414" height="198.66666666666663"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDz-i6-qJo">
@@ -91,7 +91,14 @@
                                     </button>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="tvU-42-OFD">
                                         <rect key="frame" x="48" y="37" width="318" height="31"/>
+                                        <gestureRecognizers/>
                                         <color key="minimumTrackTintColor" red="0.1764705882352941" green="0.72156862745098038" blue="0.41176470588235292" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="sliderTouchDown" destination="BYZ-38-t0r" eventType="touchDown" id="3A6-dc-6JY"/>
+                                            <action selector="sliderTouchUpInside" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q4U-mu-gLU"/>
+                                            <action selector="sliderValueChange" destination="BYZ-38-t0r" eventType="valueChanged" id="T53-ru-PSQ"/>
+                                            <outletCollection property="gestureRecognizers" destination="Hfe-6x-TD1" appends="YES" id="Yk3-jo-Qp5"/>
+                                        </connections>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02:50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pY7-7i-1Ct">
                                         <rect key="frame" x="8" y="45.666666666666629" width="34" height="14.333333333333371"/>
@@ -170,6 +177,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Hfe-6x-TD1">
+                    <connections>
+                        <action selector="sliderTapGes:" destination="BYZ-38-t0r" id="0Ef-6A-MOh"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="129" y="-166"/>
         </scene>

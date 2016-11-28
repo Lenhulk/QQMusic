@@ -32,26 +32,19 @@ class PlayingViewController: UIViewController {
         loadMusicData()
         startPlayingMusic()
     }
+
 }
 
 // MARK: - 设置UI界面
 extension PlayingViewController{
     
     fileprivate func setupUI(){
-            //1设置毛玻璃
+        //1设置毛玻璃
         setupBlurView()
-            //2设置滑块样式
+        //2设置滑块样式
         progressSlider.setThumbImage(UIImage(named: "player_slider_playback_thumb"), for: .normal)
-            //3设置IconImageView
-        var ratio : CGFloat = 0.7
-        if UIScreen.main.bounds.height == 480{
-            ratio = 0.6
-            iconViewWidthCons.constant = UIScreen.main.bounds.width * 6 / 7
-        }   //iphone4屏幕适配(好像会崩溃)
-        iconImageView.layer.cornerRadius = view.bounds.width * ratio * 0.5
-        iconImageView.layer.masksToBounds = true
-        iconImageView.layer.borderWidth = 8
-        iconImageView.layer.borderColor = UIColor.black.cgColor
+        //3设置IconImageView
+        setupIconViewCons()
     }
     
     /// 添加毛玻璃效果
@@ -64,8 +57,17 @@ extension PlayingViewController{
     }
     
     ///给iconImageView添加圆角
-//    private func setupCorner(){
-//    }
+    private func setupIconViewCons(){
+        var ratio : CGFloat = 0.7
+        if UIScreen.main.bounds.height == 480{
+            ratio = 0.6
+            iconViewWidthCons.constant = UIScreen.main.bounds.width * 0.6 - UIScreen.main.bounds.width * 0.7
+        }   //iphone4屏幕适配(好像会崩溃?)
+        iconImageView.layer.cornerRadius = view.bounds.width * ratio * 0.5
+        iconImageView.layer.masksToBounds = true
+        iconImageView.layer.borderWidth = 8
+        iconImageView.layer.borderColor = UIColor.black.cgColor
+    }
     
     ///设置状态栏颜色
     override var preferredStatusBarStyle: UIStatusBarStyle{
@@ -129,6 +131,37 @@ extension PlayingViewController{
     }
 }
 
+// MARK: - 歌曲进度的控制
+extension PlayingViewController{
+    
+    /// 一点击滑块的时候
+    @IBAction func sliderTouchDown(){
+        removeProgressTimer()   //移除定时器
+    }
+
+    /// 主要用于拖动滑块时同步修改current时间
+    @IBAction func sliderValueChange(){
+        let time = Double(progressSlider.value) * MusicTools.getDuration()
+        currentTimeLabel.text = stringWithTime(time)
+    }
+
+    /// 点击/拖动滑块松开手的时候
+    @IBAction func sliderTouchUpInside(){
+        let time = Double(progressSlider.value) * MusicTools.getDuration()
+        MusicTools.setCurrentTime(time)
+        addProgressTimer()   //添加新的定时器
+    }
+    
+    /// 点击滑块获取点击的点改变进度
+    @IBAction func sliderTapGes(_ sender: UITapGestureRecognizer) {
+        let point = sender.location(in: progressSlider)
+        let ratio = point.x / progressSlider.bounds.width
+        let time = Double(ratio) * MusicTools.getDuration()
+        MusicTools.setCurrentTime(time)
+        updateProgress()
+    }
+}
+
 // MARK: - 操作定时器
 extension PlayingViewController{
     
@@ -138,8 +171,8 @@ extension PlayingViewController{
         RunLoop.main.add(progressTimer!, forMode: .commonModes)
     }
     
-    /// 更新进度
-    @objc private func updateProgress(){
+    /// 更新界面上的进度
+    @objc fileprivate func updateProgress(){
         currentTimeLabel.text = stringWithTime(MusicTools.getCurrentTime())
         progressSlider.value = Float(MusicTools.getCurrentTime() / MusicTools.getDuration())
     }
