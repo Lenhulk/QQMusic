@@ -541,6 +541,7 @@
 				E96901341DEC126E00FA12DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
