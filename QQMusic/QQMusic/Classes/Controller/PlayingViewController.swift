@@ -12,7 +12,8 @@ class PlayingViewController: UIViewController {
     
     // MARK: - 控件属性
     @IBOutlet weak var backgroundImageView: UIImageView!
-
+    @IBOutlet weak var progressSlider: UISlider!
+    
     // MARK: - 系统回调
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,8 @@ class PlayingViewController: UIViewController {
 extension PlayingViewController{
     fileprivate func setupUI(){
         setupBlurView()
+            //设置滑块样式
+        progressSlider.setThumbImage(UIImage(named: "player_slider_playback_thumb"), for: .normal)
     }
     
     /// 添加毛玻璃效果
