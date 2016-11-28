@@ -96,6 +96,7 @@
                                         <connections>
                                             <action selector="sliderTouchDown" destination="BYZ-38-t0r" eventType="touchDown" id="3A6-dc-6JY"/>
                                             <action selector="sliderTouchUpInside" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q4U-mu-gLU"/>
+                                            <action selector="sliderTouchUpOutside" destination="BYZ-38-t0r" eventType="touchUpOutside" id="Azt-mh-n7P"/>
                                             <action selector="sliderValueChange" destination="BYZ-38-t0r" eventType="valueChanged" id="T53-ru-PSQ"/>
                                             <outletCollection property="gestureRecognizers" destination="Hfe-6x-TD1" appends="YES" id="Yk3-jo-Qp5"/>
                                         </connections>
