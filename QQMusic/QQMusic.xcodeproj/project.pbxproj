@@ -53,6 +53,8 @@
 		E969018E1DEC172500FA12DC /* 339744.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E96901651DEC172400FA12DC /* 339744.mp3 */; };
 		E969018F1DEC172500FA12DC /* Musics.plist in Resources */ = {isa = PBXBuildFile; fileRef = E96901661DEC172400FA12DC /* Musics.plist */; };
 		E96901911DEC1AF600FA12DC /* PlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96901901DEC1AF600FA12DC /* PlayingViewController.swift */; };
+		E96901951DEC31C200FA12DC /* MusicTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96901941DEC31C200FA12DC /* MusicTools.swift */; };
+		E96901971DEC31EE00FA12DC /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96901961DEC31EE00FA12DC /* MusicModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +106,8 @@
 		E96901651DEC172400FA12DC /* 339744.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 339744.mp3; sourceTree = "<group>"; };
 		E96901661DEC172400FA12DC /* Musics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Musics.plist; sourceTree = "<group>"; };
 		E96901901DEC1AF600FA12DC /* PlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayingViewController.swift; sourceTree = "<group>"; };
+		E96901941DEC31C200FA12DC /* MusicTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicTools.swift; sourceTree = "<group>"; };
+		E96901961DEC31EE00FA12DC /* MusicModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +173,7 @@
 		E96901371DEC145D00FA12DC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E96901961DEC31EE00FA12DC /* MusicModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 		E96901381DEC145D00FA12DC /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				E96901941DEC31C200FA12DC /* MusicTools.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -373,6 +379,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E96901241DEC126E00FA12DC /* AppDelegate.swift in Sources */,
+				E96901971DEC31EE00FA12DC /* MusicModel.swift in Sources */,
+				E96901951DEC31C200FA12DC /* MusicTools.swift in Sources */,
 				E96901911DEC1AF600FA12DC /* PlayingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
