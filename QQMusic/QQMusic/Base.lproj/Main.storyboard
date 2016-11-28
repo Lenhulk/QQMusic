@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -20,17 +20,17 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lkq.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="G79-v5-y4A">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8X5-Un-QW0" userLabel="Top View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="133.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="147.33333333333334"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rAC-Ze-pIY">
-                                        <rect key="frame" x="20" y="36" width="60" height="60"/>
+                                        <rect key="frame" x="20" y="43" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="6KR-Cd-85V"/>
                                             <constraint firstAttribute="width" constant="60" id="sA0-u0-Tt9"/>
@@ -38,7 +38,7 @@
                                         <state key="normal" image="miniplayer_btn_playlist_close_b"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZ4-s2-aPq">
-                                        <rect key="frame" x="295" y="36" width="60" height="60"/>
+                                        <rect key="frame" x="334" y="43" width="60" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="60" id="cxJ-us-XBi"/>
                                             <constraint firstAttribute="height" constant="60" id="mi0-x7-Xin"/>
@@ -47,13 +47,13 @@
                                         <state key="highlighted" image="main_tab_more_h"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="月半小夜曲" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pj-Aq-Ne0">
-                                        <rect key="frame" x="144" y="41.5" width="87" height="21"/>
+                                        <rect key="frame" x="163.66666666666666" y="48.666666666666671" width="87" height="21.000000000000014"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="李克勤" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="way-pv-jaD">
-                                        <rect key="frame" x="165.5" y="73.5" width="43" height="17"/>
+                                        <rect key="frame" x="185" y="80.666666666666671" width="43" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -72,35 +72,35 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kay-m5-Np8">
-                                <rect key="frame" x="0.0" y="487" width="375" height="180"/>
+                                <rect key="frame" x="0.0" y="537.33333333333348" width="414" height="198.66666666666663"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDz-i6-qJo">
-                                        <rect key="frame" x="155" y="78" width="64" height="64"/>
+                                        <rect key="frame" x="174.66666666666666" y="87" width="64" height="64"/>
                                         <state key="normal" image="player_btn_play_normal"/>
                                         <state key="selected" image="player_btn_pause_normal"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vl-Ud-G4s">
-                                        <rect key="frame" x="61" y="78" width="64" height="64"/>
+                                        <rect key="frame" x="80.666666666666657" y="87" width="63.999999999999972" height="64"/>
                                         <state key="normal" image="player_btn_pre_normal"/>
                                         <state key="highlighted" image="player_btn_pre_highlight"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lw1-TW-M0J">
-                                        <rect key="frame" x="249" y="78" width="64" height="64"/>
+                                        <rect key="frame" x="268.66666666666669" y="87" width="64" height="64"/>
                                         <state key="normal" image="player_btn_next_normal"/>
                                         <state key="highlighted" image="player_btn_next_highlight"/>
                                     </button>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="tvU-42-OFD">
-                                        <rect key="frame" x="48" y="28" width="279" height="31"/>
+                                        <rect key="frame" x="48" y="37" width="318" height="31"/>
                                         <color key="minimumTrackTintColor" red="0.1764705882352941" green="0.72156862745098038" blue="0.41176470588235292" alpha="1" colorSpace="calibratedRGB"/>
                                     </slider>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="02:50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pY7-7i-1Ct">
-                                        <rect key="frame" x="8" y="36.5" width="34" height="14.5"/>
+                                        <rect key="frame" x="8" y="45.666666666666629" width="34" height="14.333333333333371"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="04:50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5B3-tr-ts9">
-                                        <rect key="frame" x="332.5" y="36" width="34.5" height="15"/>
+                                        <rect key="frame" x="371.66666666666674" y="45" width="34.333333333333314" height="15"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -125,13 +125,13 @@
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lkq.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Fyj-Wf-8SF">
-                                <rect key="frame" x="56" y="142.5" width="262.5" height="262.5"/>
+                                <rect key="frame" x="62" y="163" width="290" height="290"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Fyj-Wf-8SF" secondAttribute="height" id="NN7-W5-z7T"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歌词" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGN-u5-ttg">
-                                <rect key="frame" x="170.5" y="454.5" width="33" height="19.5"/>
+                                <rect key="frame" x="190.66666666666666" y="504.33333333333337" width="33" height="20.000000000000114"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -160,12 +160,18 @@
                     </view>
                     <connections>
                         <outlet property="backgroundImageView" destination="G79-v5-y4A" id="4y2-Yx-G1v"/>
+                        <outlet property="currentTimeLabel" destination="pY7-7i-1Ct" id="SIK-VG-ulV"/>
+                        <outlet property="iconImageView" destination="Fyj-Wf-8SF" id="ACj-dB-y1L"/>
+                        <outlet property="iconViewWidthCons" destination="Z4Q-ZW-Xsa" id="ghe-Ir-BS2"/>
                         <outlet property="progressSlider" destination="tvU-42-OFD" id="Pux-bM-uqu"/>
+                        <outlet property="singerLabel" destination="way-pv-jaD" id="xEQ-PY-dMg"/>
+                        <outlet property="songLabel" destination="9pj-Aq-Ne0" id="AIU-Hr-2yp"/>
+                        <outlet property="totalTimeLabel" destination="5B3-tr-ts9" id="q3P-s6-sGp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="125.59999999999999" y="-90.404797601199405"/>
+            <point key="canvasLocation" x="129" y="-166"/>
         </scene>
     </scenes>
     <resources>

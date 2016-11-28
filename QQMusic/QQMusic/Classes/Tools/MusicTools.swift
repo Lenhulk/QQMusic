@@ -44,7 +44,7 @@ extension MusicTools{
     }
 }
 
-// MARK: - 对其他的控制
+// MARK: - 对其他的控制(音量/时间)
 extension MusicTools{
     
     class func changeVolume(volume : Float){
@@ -57,6 +57,10 @@ extension MusicTools{
     
     class func getCurrentTime() -> TimeInterval{
         return player?.currentTime ?? 0
+    }
+    
+    class func getDuration() -> TimeInterval{
+        return player?.duration ?? 0
     }
 }
 
