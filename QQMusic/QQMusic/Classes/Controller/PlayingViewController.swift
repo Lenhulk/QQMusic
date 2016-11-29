@@ -21,6 +21,7 @@ class PlayingViewController: UIViewController {
     @IBOutlet weak var totalTimeLabel: UILabel!
     @IBOutlet weak var lrcScrollView: LrcScrollView!
     @IBOutlet weak var lrcLabel: UILabel!
+    @IBOutlet weak var playPauseButton: UIButton!
     
     // MARK: - 成员属性
     fileprivate lazy var musicList : [MusicModel] = [MusicModel]()
@@ -232,6 +233,11 @@ extension PlayingViewController{
         }
         currentMusic = musicList[index]
         startPlayingMusic()
+        //切歌的时候,若按钮为暂停状态,恢复为播放,恢复动画
+        if !playPauseButton.isSelected {
+            playPauseButton.isSelected = !playPauseButton.isSelected
+            iconImageView.layer.resumeAnim()
+        }
     }
     
     /// 播放/暂停(暂停时移除动画, 恢复播放时重新添加)

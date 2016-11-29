@@ -192,6 +192,7 @@
                         <outlet property="iconViewWidthCons" destination="Z4Q-ZW-Xsa" id="ghe-Ir-BS2"/>
                         <outlet property="lrcLabel" destination="zGN-u5-ttg" id="0ko-gi-GyE"/>
                         <outlet property="lrcScrollView" destination="Q3w-Wt-HDy" id="6JL-86-eOD"/>
+                        <outlet property="playPauseButton" destination="aDz-i6-qJo" id="LcD-d7-OIj"/>
                         <outlet property="progressSlider" destination="tvU-42-OFD" id="Pux-bM-uqu"/>
                         <outlet property="singerLabel" destination="way-pv-jaD" id="xEQ-PY-dMg"/>
                         <outlet property="songLabel" destination="9pj-Aq-Ne0" id="AIU-Hr-2yp"/>
