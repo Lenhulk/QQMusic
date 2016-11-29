@@ -153,11 +153,19 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3w-Wt-HDy" customClass="LrcScrollView" customModule="QQMusic" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="147.33333333333337" width="414" height="390"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="keG-Ij-zYl"/>
+                                </connections>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="8X5-Un-QW0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2ei-wo-Xmd"/>
                             <constraint firstItem="kay-m5-Np8" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.27" id="3kZ-7C-Rqz"/>
+                            <constraint firstItem="Q3w-Wt-HDy" firstAttribute="top" secondItem="8X5-Un-QW0" secondAttribute="bottom" id="4Tl-KA-AYM"/>
+                            <constraint firstAttribute="trailing" secondItem="Q3w-Wt-HDy" secondAttribute="trailing" id="6La-ql-wvY"/>
                             <constraint firstItem="kay-m5-Np8" firstAttribute="top" secondItem="zGN-u5-ttg" secondAttribute="bottom" constant="13" id="CT0-qd-DmU"/>
                             <constraint firstItem="Fyj-Wf-8SF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MmD-bm-4e3"/>
                             <constraint firstAttribute="trailing" secondItem="G79-v5-y4A" secondAttribute="trailing" id="PiW-Xk-kCr"/>
@@ -165,7 +173,9 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="kay-m5-Np8" secondAttribute="bottom" id="QFf-lZ-II2"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="G79-v5-y4A" secondAttribute="bottom" id="QjY-bi-lVa"/>
                             <constraint firstItem="8X5-Un-QW0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="Sf5-Fy-W3N"/>
+                            <constraint firstItem="Q3w-Wt-HDy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="U3J-VZ-cHu"/>
                             <constraint firstItem="kay-m5-Np8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Xwa-kn-wmS"/>
+                            <constraint firstItem="kay-m5-Np8" firstAttribute="top" secondItem="Q3w-Wt-HDy" secondAttribute="bottom" id="YC8-sJ-kEj"/>
                             <constraint firstItem="Fyj-Wf-8SF" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.7" id="Z4Q-ZW-Xsa"/>
                             <constraint firstItem="zGN-u5-ttg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aBg-bO-RNH"/>
                             <constraint firstAttribute="trailing" secondItem="8X5-Un-QW0" secondAttribute="trailing" id="eg1-Yw-vfZ"/>
@@ -180,6 +190,8 @@
                         <outlet property="currentTimeLabel" destination="pY7-7i-1Ct" id="SIK-VG-ulV"/>
                         <outlet property="iconImageView" destination="Fyj-Wf-8SF" id="ACj-dB-y1L"/>
                         <outlet property="iconViewWidthCons" destination="Z4Q-ZW-Xsa" id="ghe-Ir-BS2"/>
+                        <outlet property="lrcLabel" destination="zGN-u5-ttg" id="0ko-gi-GyE"/>
+                        <outlet property="lrcScrollView" destination="Q3w-Wt-HDy" id="6JL-86-eOD"/>
                         <outlet property="progressSlider" destination="tvU-42-OFD" id="Pux-bM-uqu"/>
                         <outlet property="singerLabel" destination="way-pv-jaD" id="xEQ-PY-dMg"/>
                         <outlet property="songLabel" destination="9pj-Aq-Ne0" id="AIU-Hr-2yp"/>
@@ -193,7 +205,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="129" y="-166"/>
+            <point key="canvasLocation" x="-95.652173913043484" y="-154.89130434782609"/>
         </scene>
     </scenes>
     <resources>

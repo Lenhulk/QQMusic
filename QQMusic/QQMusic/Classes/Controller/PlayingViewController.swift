@@ -19,6 +19,8 @@ class PlayingViewController: UIViewController {
     @IBOutlet weak var iconViewWidthCons: NSLayoutConstraint!
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var totalTimeLabel: UILabel!
+    @IBOutlet weak var lrcScrollView: LrcScrollView!
+    @IBOutlet weak var lrcLabel: UILabel!
     
     // MARK: - 成员属性
     fileprivate lazy var musicList : [MusicModel] = [MusicModel]()
@@ -44,10 +46,15 @@ extension PlayingViewController{
     fileprivate func setupUI(){
         //1设置毛玻璃
         setupBlurView()
+        
         //2设置滑块样式
         progressSlider.setThumbImage(UIImage(named: "player_slider_playback_thumb"), for: .normal)
+        
         //3设置IconImageView
         setupIconViewCons()
+        
+        //4设置scrollview的滚动范围
+        lrcScrollView.contentSize = CGSize(width: view.bounds.width * 2, height: 0)
     }
     
     /// 添加毛玻璃效果
@@ -118,6 +125,9 @@ extension PlayingViewController{
         
         //5给IconImageView添加动画
         addRotationAnimation()
+        
+        //6将歌词文件传入
+        lrcScrollView.lrcName = currentMusic.lrcname
     }
     
     fileprivate func stringWithTime(_ time : TimeInterval) -> String{
@@ -238,6 +248,16 @@ extension PlayingViewController{
     
 }
 
-
+// MARK: - 歌词ScrollView
+extension PlayingViewController : UIScrollViewDelegate{
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //设置透明度随滚动渐变
+        let ratio = scrollView.contentOffset.x / scrollView.bounds.width
+        iconImageView.alpha = 1 - ratio
+        lrcLabel.alpha = 1 - ratio
+        
+        lrcScrollView.alpha = ratio
+    }
+}
 
 

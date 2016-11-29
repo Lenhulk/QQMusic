@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E94466791DEDB89E00C52338 /* LrcScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94466781DEDB89E00C52338 /* LrcScrollView.swift */; };
+		E944667B1DEDBC0B00C52338 /* LrcViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E944667A1DEDBC0B00C52338 /* LrcViewCell.swift */; };
 		E9468DE01DED5283006514EB /* CALayer-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9468DDF1DED5283006514EB /* CALayer-Extension.swift */; };
 		E96901241DEC126E00FA12DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96901231DEC126E00FA12DC /* AppDelegate.swift */; };
 		E96901291DEC126E00FA12DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96901271DEC126E00FA12DC /* Main.storyboard */; };
@@ -59,6 +61,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E94466781DEDB89E00C52338 /* LrcScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LrcScrollView.swift; sourceTree = "<group>"; };
+		E944667A1DEDBC0B00C52338 /* LrcViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LrcViewCell.swift; sourceTree = "<group>"; };
 		E9468DDF1DED5283006514EB /* CALayer-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer-Extension.swift"; sourceTree = "<group>"; };
 		E96901201DEC126E00FA12DC /* QQMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QQMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E96901231DEC126E00FA12DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 		E96901391DEC145D00FA12DC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E94466781DEDB89E00C52338 /* LrcScrollView.swift */,
+				E944667A1DEDBC0B00C52338 /* LrcViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -384,8 +390,10 @@
 				E9468DE01DED5283006514EB /* CALayer-Extension.swift in Sources */,
 				E96901241DEC126E00FA12DC /* AppDelegate.swift in Sources */,
 				E96901971DEC31EE00FA12DC /* MusicModel.swift in Sources */,
+				E94466791DEDB89E00C52338 /* LrcScrollView.swift in Sources */,
 				E96901951DEC31C200FA12DC /* MusicTools.swift in Sources */,
 				E96901911DEC1AF600FA12DC /* PlayingViewController.swift in Sources */,
+				E944667B1DEDBC0B00C52338 /* LrcViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
