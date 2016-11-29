@@ -34,7 +34,7 @@ class PlayingViewController: UIViewController {
         
         setupUI()
         loadMusicData()
-        currentMusic = musicList[5]
+        currentMusic = musicList[4]
         startPlayingMusic()
     }
 
@@ -262,7 +262,6 @@ extension PlayingViewController : UIScrollViewDelegate{
         iconImageView.alpha = 1 - ratio
         lrcLabel.alpha = 1 - ratio
         
-        lrcScrollView.alpha = ratio
     }
 }
 

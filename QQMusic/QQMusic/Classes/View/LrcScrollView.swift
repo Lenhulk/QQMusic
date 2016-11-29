@@ -14,11 +14,14 @@ class LrcScrollView: UIScrollView {
     
     // MARK: - 控件&属性
     fileprivate lazy var tableView : UITableView = UITableView()
+    fileprivate var lrclines : [String]?
+    
     var lrcName : String = "" {
         didSet{
             //一加载歌词就设置tableView偏移量(第一句歌词从中间往上滚)
             tableView.setContentOffset(CGPoint(x: 0, y: -bounds.width * 0.5), animated: true)
-            print(lrcName)  //测试
+            lrclines = LrcTools.parseLrc(lrcName)
+            tableView.reloadData()
         }
     }
 
@@ -61,12 +64,12 @@ extension LrcScrollView{
 // MARK: - UITableViewDelegate
 extension LrcScrollView: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+        return lrclines!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: kLrcCellID, for: indexPath)
-        cell.textLabel?.text = "测试数据\(indexPath.row)"
+        cell.textLabel?.text = lrclines![indexPath.row]
         return cell
     }
 }
