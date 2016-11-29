@@ -74,20 +74,29 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kay-m5-Np8" userLabel="Bottom View">
                                 <rect key="frame" x="0.0" y="537.33333333333348" width="414" height="198.66666666666663"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDz-i6-qJo">
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aDz-i6-qJo" userLabel="播放">
                                         <rect key="frame" x="174.66666666666666" y="87" width="64" height="64"/>
                                         <state key="normal" image="player_btn_play_normal"/>
                                         <state key="selected" image="player_btn_pause_normal"/>
+                                        <connections>
+                                            <action selector="playOrPauseBtnClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="A1X-6X-JdM"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vl-Ud-G4s">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vl-Ud-G4s" userLabel="上">
                                         <rect key="frame" x="80.666666666666657" y="87" width="63.999999999999972" height="64"/>
                                         <state key="normal" image="player_btn_pre_normal"/>
                                         <state key="highlighted" image="player_btn_pre_highlight"/>
+                                        <connections>
+                                            <action selector="previousMusicBtnClick" destination="BYZ-38-t0r" eventType="touchUpInside" id="2fa-vJ-0dQ"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lw1-TW-M0J">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lw1-TW-M0J" userLabel="下">
                                         <rect key="frame" x="268.66666666666669" y="87" width="64" height="64"/>
                                         <state key="normal" image="player_btn_next_normal"/>
                                         <state key="highlighted" image="player_btn_next_highlight"/>
+                                        <connections>
+                                            <action selector="nextMusicBtnClick" destination="BYZ-38-t0r" eventType="touchUpInside" id="ddV-rA-VVa"/>
+                                        </connections>
                                     </button>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="tvU-42-OFD">
                                         <rect key="frame" x="48" y="37" width="318" height="31"/>

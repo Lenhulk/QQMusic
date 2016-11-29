@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E9468DE01DED5283006514EB /* CALayer-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9468DDF1DED5283006514EB /* CALayer-Extension.swift */; };
 		E96901241DEC126E00FA12DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96901231DEC126E00FA12DC /* AppDelegate.swift */; };
 		E96901291DEC126E00FA12DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E96901271DEC126E00FA12DC /* Main.storyboard */; };
 		E969012B1DEC126E00FA12DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E969012A1DEC126E00FA12DC /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E9468DDF1DED5283006514EB /* CALayer-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer-Extension.swift"; sourceTree = "<group>"; };
 		E96901201DEC126E00FA12DC /* QQMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QQMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E96901231DEC126E00FA12DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E96901281DEC126E00FA12DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				E96901941DEC31C200FA12DC /* MusicTools.swift */,
+				E9468DDF1DED5283006514EB /* CALayer-Extension.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9468DE01DED5283006514EB /* CALayer-Extension.swift in Sources */,
 				E96901241DEC126E00FA12DC /* AppDelegate.swift in Sources */,
 				E96901971DEC31EE00FA12DC /* MusicModel.swift in Sources */,
 				E96901951DEC31C200FA12DC /* MusicTools.swift in Sources */,

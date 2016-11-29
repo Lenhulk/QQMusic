@@ -23,6 +23,7 @@ class PlayingViewController: UIViewController {
     // MARK: - 成员属性
     fileprivate lazy var musicList : [MusicModel] = [MusicModel]()
     fileprivate var progressTimer : Timer?
+    fileprivate var currentMusic : MusicModel!
     
     // MARK: - 系统回调
     override func viewDidLoad() {
@@ -30,9 +31,11 @@ class PlayingViewController: UIViewController {
         
         setupUI()
         loadMusicData()
+        currentMusic = musicList[5]
         startPlayingMusic()
     }
 
+    
 }
 
 // MARK: - 设置UI界面
@@ -93,15 +96,17 @@ extension PlayingViewController{
     
     fileprivate func startPlayingMusic(){
         //1取出歌曲播放
-        let redomNum = arc4random_uniform(UInt32(musicList.count))
-        let music = musicList[Int(redomNum)]
-        MusicTools.playMusic(music.filename)
+        //随机
+//        let redomNum = arc4random_uniform(UInt32(musicList.count))
+//        let music = musicList[Int(redomNum)]
+        
+        MusicTools.playMusic(currentMusic.filename)
         
         //2改变界面内容
-        backgroundImageView.image = UIImage(named: music.icon)
-        iconImageView.image = UIImage(named: music.icon)
-        songLabel.text = music.name
-        singerLabel.text = music.singer
+        backgroundImageView.image = UIImage(named: currentMusic.icon)
+        iconImageView.image = UIImage(named: currentMusic.icon)
+        songLabel.text = currentMusic.name
+        singerLabel.text = currentMusic.singer
         progressSlider.value = 0
         
         //3修改显示的时间
@@ -190,5 +195,49 @@ extension PlayingViewController{
         progressTimer = nil
     }
 }
+
+// MARK: - 更新歌曲(上一首/下一首/暂停/播放)
+extension PlayingViewController{
+    
+    /// 下一首
+    @IBAction func nextMusicBtnClick() {
+        switchMusic(isNext : true)
+    }
+    
+    /// 上一首
+    @IBAction func previousMusicBtnClick() {
+        switchMusic(isNext: false)
+    }
+    
+    /// 切换歌曲(向下/向上)
+    private func switchMusic(isNext : Bool){
+        let currentIndex = musicList.index(of: currentMusic)!
+        var index : Int = 0
+        if isNext {
+            index = currentIndex + 1
+            index = index > musicList.count - 1 ? 0 : currentIndex + 1
+        } else {
+            index = currentIndex - 1
+            index = index < 0 ? musicList.count - 1 : currentIndex - 1
+        }
+        currentMusic = musicList[index]
+        startPlayingMusic()
+    }
+    
+    /// 播放/暂停(暂停时移除动画, 恢复播放时重新添加)
+    @IBAction func playOrPauseBtnClick(_ btn: UIButton) {
+        btn.isSelected = !btn.isSelected
+        if btn.isSelected {
+            MusicTools.playMusic(currentMusic.filename)
+            iconImageView.layer.resumeAnim()
+        } else {
+            MusicTools.pauseMusic()
+            iconImageView.layer.pauseAnim()
+        }
+    }
+    
+}
+
+
 
 
