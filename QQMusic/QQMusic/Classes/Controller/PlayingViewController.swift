@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import MediaPlayer
 
 class PlayingViewController: UIViewController {
     
@@ -141,6 +142,9 @@ extension PlayingViewController{
         //7添加更新歌词的定时器
         removeLrcTimer()
         addLrcTimer()
+        
+        //8添加锁屏界面信息
+        setupLockInfo()
     }
     
     fileprivate func stringWithTime(_ time : TimeInterval) -> String{
@@ -301,10 +305,48 @@ extension PlayingViewController : UIScrollViewDelegate, LrcScrollViewDelegate{
     }
 }
 
+// MARK: - 监听歌曲播放完成
 extension PlayingViewController : AVAudioPlayerDelegate{
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         if flag { nextMusicBtnClick() }
     }
 }
 
+// MARK: - 设置锁屏界面信息
+extension PlayingViewController{
+    
+    /// 设置锁屏信息
+    func setupLockInfo(){
+        //1获取锁屏中心
+        let centerInfo =  MPNowPlayingInfoCenter.default()
+        
+        //2设置信息
+        var infoDict = [String : Any]()
+        infoDict[MPMediaItemPropertyAlbumTitle] = currentMusic.name
+        infoDict[MPMediaItemPropertyArtist] = currentMusic.singer
+        infoDict[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(image: UIImage(named: currentMusic.icon)!)
+        infoDict[MPMediaItemPropertyPlaybackDuration] = MusicTools.getDuration()
+        centerInfo.nowPlayingInfo = infoDict
+        
+        //3让应用程序成为第一响应者
+        UIApplication.shared.becomeFirstResponder()
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+    }
+    
+    override func remoteControlReceived(with event: UIEvent?) {
+        //校验远程事件是否有值
+        guard let event = event else { return }
+        //处理远程事件
+        switch event.subtype {
+        case .remoteControlPlay, .remoteControlPause:
+            playOrPauseBtnClick(playPauseButton)
+        case .remoteControlNextTrack:
+            nextMusicBtnClick()
+        case .remoteControlPreviousTrack:
+            previousMusicBtnClick()
+        default:
+            print("????")
+        }
+    }
+}
 
