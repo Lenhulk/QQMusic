@@ -26,6 +26,7 @@ class PlayingViewController: UIViewController {
     // MARK: - 成员属性
     fileprivate lazy var musicList : [MusicModel] = [MusicModel]()
     fileprivate var progressTimer : Timer?
+    fileprivate var lrcTimer : CADisplayLink?
     fileprivate var currentMusic : MusicModel!
     
     // MARK: - 系统回调
@@ -122,6 +123,7 @@ extension PlayingViewController{
         totalTimeLabel.text = stringWithTime(MusicTools.getDuration())
         
         //4添加更新进度的定时器
+        removeProgressTimer()
         addProgressTimer()
         
         //5给IconImageView添加动画
@@ -129,6 +131,10 @@ extension PlayingViewController{
         
         //6将歌词文件传入
         lrcScrollView.lrcName = currentMusic.lrcname
+        
+        //7添加更新歌词的定时器
+        removeLrcTimer()
+        addLrcTimer()
     }
     
     fileprivate func stringWithTime(_ time : TimeInterval) -> String{
@@ -188,22 +194,39 @@ extension PlayingViewController{
 // MARK: - 操作定时器
 extension PlayingViewController{
     
-    /// 添加定时器
+    /// 添加歌曲进度定时器
     fileprivate func addProgressTimer(){
         progressTimer = Timer(timeInterval: 1.0, target: self, selector: #selector(updateProgress), userInfo: nil, repeats: true)
         RunLoop.main.add(progressTimer!, forMode: .commonModes)
     }
     
-    /// 更新界面上的进度
+    /// 实时更新界面上的进度的方法
     @objc fileprivate func updateProgress(){
         currentTimeLabel.text = stringWithTime(MusicTools.getCurrentTime())
         progressSlider.value = Float(MusicTools.getCurrentTime() / MusicTools.getDuration())
     }
     
-    /// 移除定时器
+    /// 移除歌曲进度定时器
     fileprivate func removeProgressTimer(){
         progressTimer?.invalidate()
         progressTimer = nil
+    }
+
+    /// 添加歌词定时器
+    fileprivate func addLrcTimer(){
+        lrcTimer = CADisplayLink(target: self, selector: #selector(updateLrc))
+        lrcTimer?.add(to: RunLoop.main, forMode: .commonModes)
+    }
+
+    /// 移除歌词定时器
+    fileprivate func removeLrcTimer(){
+        lrcTimer?.invalidate()
+        lrcTimer = nil
+    }
+    
+    /// 给歌词的当前时间传值
+    @objc fileprivate func updateLrc(){
+        lrcScrollView.currentTime = MusicTools.getCurrentTime()
     }
 }
 

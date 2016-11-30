@@ -59,6 +59,7 @@
 		E96901911DEC1AF600FA12DC /* PlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96901901DEC1AF600FA12DC /* PlayingViewController.swift */; };
 		E96901951DEC31C200FA12DC /* MusicTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96901941DEC31C200FA12DC /* MusicTools.swift */; };
 		E96901971DEC31EE00FA12DC /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96901961DEC31EE00FA12DC /* MusicModel.swift */; };
+		E9B0EF7E1DEE963700C66E21 /* LrclineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B0EF7D1DEE963700C66E21 /* LrclineModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +117,7 @@
 		E96901901DEC1AF600FA12DC /* PlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayingViewController.swift; sourceTree = "<group>"; };
 		E96901941DEC31C200FA12DC /* MusicTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicTools.swift; sourceTree = "<group>"; };
 		E96901961DEC31EE00FA12DC /* MusicModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
+		E9B0EF7D1DEE963700C66E21 /* LrclineModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LrclineModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				E96901961DEC31EE00FA12DC /* MusicModel.swift */,
+				E9B0EF7D1DEE963700C66E21 /* LrclineModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				E96901241DEC126E00FA12DC /* AppDelegate.swift in Sources */,
 				E96901971DEC31EE00FA12DC /* MusicModel.swift in Sources */,
 				E944667D1DEDD97F00C52338 /* LrcTools.swift in Sources */,
+				E9B0EF7E1DEE963700C66E21 /* LrclineModel.swift in Sources */,
 				E94466791DEDB89E00C52338 /* LrcScrollView.swift in Sources */,
 				E96901951DEC31C200FA12DC /* MusicTools.swift in Sources */,
 				E96901911DEC1AF600FA12DC /* PlayingViewController.swift in Sources */,
