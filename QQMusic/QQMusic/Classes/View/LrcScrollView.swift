@@ -39,17 +39,27 @@ class LrcScrollView: UIScrollView {
                     tableView.reloadRows(at: [indexPath, preIndexPath], with: .none)
                     tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
                 }
+                //4判断是否正在播放同一句歌词
+                if i == currentlineIndex{
+                    //获取当前句进度
+                    let progress = (currentTime - lrcline.lrcTime) / (nextLrcline.lrcTime - lrcline.lrcTime)
+                    //取出当前对应cell
+                    let indexPath = IndexPath(row: i, section: 0)
+                    guard let currentCell = tableView.cellForRow(at: indexPath) as? LrcViewCell else { continue }
+                    currentCell.lrcLabel.progress = progress
+                }
             }
         }
     }
     
     var lrcName : String = "" {
         didSet{
-            //一加载歌词就设置tableView偏移量(第一句歌词从中间往上滚)
-            tableView.setContentOffset(CGPoint(x: 0, y: -bounds.width * 0.5), animated: true)
+            //一加载歌词就设置tableView偏移量(第一句歌词从中间往上滚, 不要有动画效果会比较好)
+            tableView.setContentOffset(CGPoint(x: 0, y: -bounds.width * 0.5), animated: false)
             lrclines = LrcTools.parseLrc(lrcName)
             tableView.reloadData()
             
+            //每次有新的歌词的时候要把currentlineIndex重置, 否则歌词处若记录一个大行数, 切歌进入下一首在新的歌词文件中读取不到这个行数的值, 会崩溃
             currentlineIndex = 0
         }
     }
@@ -100,16 +110,17 @@ extension LrcScrollView: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: kLrcCellID, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: kLrcCellID, for: indexPath) as! LrcViewCell
         
         if indexPath.row == currentlineIndex{
-            cell.textLabel?.textColor = UIColor.cyan
+            cell.lrcLabel.font = UIFont.systemFont(ofSize: 16.0)
         } else {
-            cell.textLabel?.textColor = UIColor.white
+            cell.lrcLabel.font = UIFont.systemFont(ofSize: 14.0)
+            cell.lrcLabel.progress = 0
         }
         
         let lrcline = lrclines![indexPath.row]
-        cell.textLabel?.text = lrcline.lrcText
+        cell.lrcLabel.text = lrcline.lrcText
         
         return cell
     }

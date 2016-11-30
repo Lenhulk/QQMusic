@@ -9,18 +9,31 @@
 import UIKit
 
 class LrcViewCell: UITableViewCell {
+    
+    lazy var lrcLabel : LrcLabel = LrcLabel()
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        contentView.addSubview(lrcLabel)
+        
         backgroundColor = UIColor.clear
-        textLabel?.textAlignment = .center
-        textLabel?.textColor = UIColor.white
-        textLabel?.font = UIFont.systemFont(ofSize: 14)
         selectionStyle = .none
+        
+        lrcLabel.textAlignment = .center
+        lrcLabel.textColor = UIColor.white
+        lrcLabel.font = UIFont.systemFont(ofSize: 14)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        lrcLabel.sizeToFit()
+        lrcLabel.center = contentView.center
     }
 
 }
