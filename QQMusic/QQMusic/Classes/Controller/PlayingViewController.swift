@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class PlayingViewController: UIViewController {
     
@@ -113,11 +114,8 @@ extension PlayingViewController{
     
     fileprivate func startPlayingMusic(){
         //1取出歌曲播放
-        //随机
-//        let redomNum = arc4random_uniform(UInt32(musicList.count))
-//        let music = musicList[Int(redomNum)]
-        
         MusicTools.playMusic(currentMusic.filename)
+        MusicTools.setPlayerDelegate(self)
         
         //2改变界面内容
         backgroundImageView.image = UIImage(named: currentMusic.icon)
@@ -300,6 +298,12 @@ extension PlayingViewController : UIScrollViewDelegate, LrcScrollViewDelegate{
     func lrcScrollView(_ lrcScrollView: LrcScrollView, lrcText: String, progress: Double) {
         lrcLabel.text = lrcText
         lrcLabel.progress = progress
+    }
+}
+
+extension PlayingViewController : AVAudioPlayerDelegate{
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        if flag { nextMusicBtnClick() }
     }
 }
 

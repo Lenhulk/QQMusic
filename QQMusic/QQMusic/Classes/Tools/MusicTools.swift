@@ -44,7 +44,7 @@ extension MusicTools{
     }
 }
 
-// MARK: - 对其他的控制(音量/时间)
+// MARK: - 对其他的控制(音量/时间/代理设置)
 extension MusicTools{
     
     class func changeVolume(volume : Float){
@@ -62,7 +62,14 @@ extension MusicTools{
     class func getDuration() -> TimeInterval{
         return player?.duration ?? 0
     }
+    
+    class func setPlayerDelegate(_ delegate : AVAudioPlayerDelegate){
+        player?.delegate = delegate
+    }
+    
 }
+
+
 
 
 
