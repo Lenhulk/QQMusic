@@ -13,6 +13,7 @@ private let kLrcCellID : String = "LrcTVCell"
 // MARK: - 定义LrcScrollViewDelegate协议
 protocol LrcScrollViewDelegate : class {
     func lrcScrollView(_ lrcScrollView : LrcScrollView, lrcText : String, progress : Double)
+    func lrcScrollView(_ lrcScrollView : LrcScrollView, nextLrcText : String, curLrcText : String, preLrcText : String)
 }
 
 class LrcScrollView: UIScrollView {
@@ -43,11 +44,15 @@ class LrcScrollView: UIScrollView {
                 
                 //3大于i位置的歌词,并且小于i+1位置的歌词,则显示i位置的歌词
                 if currentTime > lrcline.lrcTime && currentTime < nextLrcline.lrcTime && i != currentlineIndex{
+                    
                     let preIndexPath = IndexPath(row: currentlineIndex, section: 0) //上一个对应的path
                     currentlineIndex = i
                     let indexPath = IndexPath(row: i, section: 0)   //当前的path
                     tableView.reloadRows(at: [indexPath, preIndexPath], with: .none)
                     tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+                    
+                    //画出最新歌词的图片(用于给锁屏界面显示)
+                    drawLrcImage()
                 }
                 
                 //4判断是否正在播放同一句歌词
@@ -120,7 +125,7 @@ extension LrcScrollView{
 
 
 // MARK: - ScrollView数据源方法
-extension LrcScrollView: UITableViewDataSource{
+extension LrcScrollView : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return lrclines?.count ?? 0
     }
@@ -140,5 +145,24 @@ extension LrcScrollView: UITableViewDataSource{
         
         return cell
     }
-    
+}
+
+extension LrcScrollView {
+
+    /// 取出三句歌词, 并将三局歌词回调给外界控制器
+    fileprivate func drawLrcImage(){
+        //取出本句歌词
+        let currentLrcText = lrclines![currentlineIndex].lrcText
+        //取出上一句歌词
+        var previousLrcText = ""
+        if currentlineIndex - 1 >= 0{
+            previousLrcText = lrclines![currentlineIndex - 1].lrcText
+        }
+        //取出下一句歌词
+        var nextLrcText = ""
+        if currentlineIndex + 1 <= lrclines!.count - 1{
+            nextLrcText = lrclines![currentlineIndex + 1].lrcText
+        }
+        lrcSVDelegate?.lrcScrollView(self, nextLrcText: nextLrcText, curLrcText: currentLrcText, preLrcText: previousLrcText)
+    }
 }

@@ -144,7 +144,7 @@ extension PlayingViewController{
         addLrcTimer()
         
         //8添加锁屏界面信息
-        setupLockInfo()
+        setupLockInfo(lrcImage: UIImage(named: currentMusic.icon))
     }
     
     fileprivate func stringWithTime(_ time : TimeInterval) -> String{
@@ -303,6 +303,43 @@ extension PlayingViewController : UIScrollViewDelegate, LrcScrollViewDelegate{
         lrcLabel.text = lrcText
         lrcLabel.progress = progress
     }
+    
+    // MARK: 绘制锁屏界面展示的图片
+    func lrcScrollView(_ lrcScrollView: LrcScrollView, nextLrcText: String, curLrcText: String, preLrcText: String) {
+        //获取封面图片
+        guard let image = UIImage(named: currentMusic.icon) else { return }
+        
+        //根据图片尺寸开启上下文 & 绘制图片
+        UIGraphicsBeginImageContextWithOptions(image.size, true, 0.0)
+        image.draw(in: CGRect(origin: CGPoint.zero, size: image.size))
+        
+        //绘出三句歌词
+        let textH : CGFloat = 30
+        
+        let nextRect = CGRect(x: 0, y: image.size.height - textH, width: image.size.width, height: textH)
+        let style = NSMutableParagraphStyle()
+        style.alignment = .center
+        let nextAttrs = [NSForegroundColorAttributeName : UIColor.white,
+                         NSFontAttributeName : UIFont.systemFont(ofSize: 15),
+                         NSParagraphStyleAttributeName : style]
+        (nextLrcText as NSString).draw(in: nextRect, withAttributes: nextAttrs)
+        
+        let currentRect = CGRect(x: 0, y: image.size.height - 2 * textH, width: image.size.width, height: textH)
+        let currentAttrs = [NSForegroundColorAttributeName : UIColor.green,
+                            NSFontAttributeName : UIFont.systemFont(ofSize: 16),
+                            NSParagraphStyleAttributeName : style]
+        (curLrcText as NSString).draw(in: currentRect, withAttributes: currentAttrs)
+        
+        let preRect = CGRect(x: 0, y: image.size.height - 3 * textH, width: image.size.width, height: textH)
+        (preLrcText as NSString).draw(in: preRect, withAttributes: nextAttrs)
+        
+        //从上下文获取图片 & 关闭上下文
+        let lrcImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        //根据最新图片设置锁屏界面信息
+        setupLockInfo(lrcImage: lrcImage)
+    }
 }
 
 // MARK: - 监听歌曲播放完成
@@ -316,7 +353,7 @@ extension PlayingViewController : AVAudioPlayerDelegate{
 extension PlayingViewController{
     
     /// 设置锁屏信息
-    func setupLockInfo(){
+    func setupLockInfo(lrcImage : UIImage?){
         //1获取锁屏中心
         let centerInfo =  MPNowPlayingInfoCenter.default()
         
@@ -324,7 +361,10 @@ extension PlayingViewController{
         var infoDict = [String : Any]()
         infoDict[MPMediaItemPropertyAlbumTitle] = currentMusic.name
         infoDict[MPMediaItemPropertyArtist] = currentMusic.singer
-        infoDict[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(image: UIImage(named: currentMusic.icon)!)
+//        infoDict[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(image: UIImage(named: currentMusic.icon)!)
+        if let image = lrcImage{
+            infoDict[MPMediaItemPropertyArtwork] = MPMediaItemArtwork(image: image)
+        }
         infoDict[MPMediaItemPropertyPlaybackDuration] = MusicTools.getDuration()
         centerInfo.nowPlayingInfo = infoDict
         
