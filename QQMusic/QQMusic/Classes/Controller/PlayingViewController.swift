@@ -20,7 +20,7 @@ class PlayingViewController: UIViewController {
     @IBOutlet weak var currentTimeLabel: UILabel!
     @IBOutlet weak var totalTimeLabel: UILabel!
     @IBOutlet weak var lrcScrollView: LrcScrollView!
-    @IBOutlet weak var lrcLabel: UILabel!
+    @IBOutlet weak var lrcLabel: LrcLabel!
     @IBOutlet weak var playPauseButton: UIButton!
     
     // MARK: - 成员属性
@@ -34,11 +34,19 @@ class PlayingViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
+        
         loadMusicData()
+        
         currentMusic = musicList[4]
         startPlayingMusic()
+        
+        lrcScrollView.lrcSVDelegate = self
     }
 
+    ///页面显示后, 设置歌词首句滚动到屏幕中间
+    override func viewDidAppear(_ animated: Bool) {
+        lrcScrollView.setTableViewContentOffset()
+    }
     
 }
 
@@ -278,13 +286,20 @@ extension PlayingViewController{
 }
 
 // MARK: - 歌词ScrollView
-extension PlayingViewController : UIScrollViewDelegate{
+extension PlayingViewController : UIScrollViewDelegate, LrcScrollViewDelegate{
+    
+    // MARK: 设置透明度随滚动渐变
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        //设置透明度随滚动渐变
         let ratio = scrollView.contentOffset.x / scrollView.bounds.width
         iconImageView.alpha = 1 - ratio
         lrcLabel.alpha = 1 - ratio
         
+    }
+    
+    // MARK: 歌词ScrollView代理方法
+    func lrcScrollView(_ lrcScrollView: LrcScrollView, lrcText: String, progress: Double) {
+        lrcLabel.text = lrcText
+        lrcLabel.progress = progress
     }
 }
 

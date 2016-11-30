@@ -147,7 +147,7 @@
                                     <constraint firstAttribute="width" secondItem="Fyj-Wf-8SF" secondAttribute="height" id="NN7-W5-z7T"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歌词" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGN-u5-ttg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="歌词" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGN-u5-ttg" customClass="LrcLabel" customModule="QQMusic" customModuleProvider="target">
                                 <rect key="frame" x="190.66666666666666" y="504.33333333333337" width="33" height="20.000000000000114"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -206,7 +206,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-95.652173913043484" y="-154.89130434782609"/>
+            <point key="canvasLocation" x="16" y="-240"/>
         </scene>
     </scenes>
     <resources>

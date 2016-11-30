@@ -8,7 +8,12 @@
 
 import UIKit
 
-let kLrcCellID : String = "LrcTVCell"
+private let kLrcCellID : String = "LrcTVCell"
+
+// MARK: - 定义LrcScrollViewDelegate协议
+protocol LrcScrollViewDelegate : class {
+    func lrcScrollView(_ lrcScrollView : LrcScrollView, lrcText : String, progress : Double)
+}
 
 class LrcScrollView: UIScrollView {
     
@@ -18,19 +23,24 @@ class LrcScrollView: UIScrollView {
     fileprivate var currentlineIndex : Int = 0
     
     // MARK: - 对外属性
+    weak var lrcSVDelegate : LrcScrollViewDelegate?
     var currentTime : TimeInterval = 0 {
         didSet{
             //校验歌词是否有值
             guard let lrclines = lrclines else { return }
+            
             //遍历所有歌词
             let count = lrclines.count
             for i in 0..<count{
+                
                 //1取出当前歌词
                 let lrcline = lrclines[i]
+                
                 //2取出下一句歌词
                 let nextIndex = i + 1
                 if nextIndex > count - 1 { continue }
                 let nextLrcline = lrclines[nextIndex]
+                
                 //3大于i位置的歌词,并且小于i+1位置的歌词,则显示i位置的歌词
                 if currentTime > lrcline.lrcTime && currentTime < nextLrcline.lrcTime && i != currentlineIndex{
                     let preIndexPath = IndexPath(row: currentlineIndex, section: 0) //上一个对应的path
@@ -39,14 +49,20 @@ class LrcScrollView: UIScrollView {
                     tableView.reloadRows(at: [indexPath, preIndexPath], with: .none)
                     tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
                 }
+                
                 //4判断是否正在播放同一句歌词
                 if i == currentlineIndex{
-                    //获取当前句进度
+                    
+                    //01获取当前句进度
                     let progress = (currentTime - lrcline.lrcTime) / (nextLrcline.lrcTime - lrcline.lrcTime)
-                    //取出当前对应cell
+                    
+                    //02取出当前对应cell
                     let indexPath = IndexPath(row: i, section: 0)
                     guard let currentCell = tableView.cellForRow(at: indexPath) as? LrcViewCell else { continue }
                     currentCell.lrcLabel.progress = progress
+                    
+                    //03通知代理&传入内容
+                    lrcSVDelegate?.lrcScrollView(self, lrcText: lrcline.lrcText, progress: progress)
                 }
             }
         }
@@ -72,7 +88,7 @@ class LrcScrollView: UIScrollView {
     }
     
     ///设置TV一开始的偏移量
-    private func setTableViewContentOffset(){
+    func setTableViewContentOffset(){
         tableView.contentOffset = CGPoint(x: 0, y: -bounds.size.width * 0.5)
     }
 }
@@ -103,7 +119,7 @@ extension LrcScrollView{
 }
 
 
-// MARK: - UITableViewDelegate
+// MARK: - ScrollView数据源方法
 extension LrcScrollView: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return lrclines?.count ?? 0
@@ -124,4 +140,5 @@ extension LrcScrollView: UITableViewDataSource{
         
         return cell
     }
+    
 }
