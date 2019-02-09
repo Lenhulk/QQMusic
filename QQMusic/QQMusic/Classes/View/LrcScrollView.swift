@@ -48,7 +48,8 @@ class LrcScrollView: UIScrollView {
                     let preIndexPath = IndexPath(row: currentlineIndex, section: 0) //上一个对应的path
                     currentlineIndex = i
                     let indexPath = IndexPath(row: i, section: 0)   //当前的path
-                    tableView.reloadRows(at: [indexPath, preIndexPath], with: .none)
+//                    tableView.reloadRows(at: [indexPath, preIndexPath], with: .none)
+                    tableView.reloadData()
                     tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
                     
                     //画出最新歌词的图片(用于给锁屏界面显示)
